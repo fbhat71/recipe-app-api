@@ -10,7 +10,8 @@ class UserAdmin(BaseUserAdmin):
     list_display = ["email", "name"]
     fieldsets = (
         (None, {"fields": ("email", "password")}),
-        (_('permissions'),
+        (
+            _('permissions'),
             {
                 "fields": (
                     "is_active",
@@ -25,8 +26,17 @@ class UserAdmin(BaseUserAdmin):
     add_fieldsets = (
         (None, {
             "classes": ("wide",),
-            "fields": ("email", "password1", "password2", "name", "is_active", "is_staff", "is_superuser"),
+            "fields": (
+                "email",
+                "password1",
+                "password2",
+                "name",
+                "is_active",
+                "is_staff",
+                "is_superuser"
+            ),
         }),
     )
+
 
 admin.site.register(models.User, UserAdmin)
